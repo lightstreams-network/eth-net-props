@@ -14,6 +14,8 @@ const {
 	CELO_CODE,
 	CELO_ALFAJORES_TESTNET_CODE,
 	CELO_BAKLAVA_TESTNET_CODE,
+	LIGHTSTREAMS_CODE,
+	LIGHTSTREAMS_SIRIUS_CODE
 } = networkIDs
 
 const blockScoutLink = (net, prefix) => `https://blockscout.com/${net}/${prefix}`
@@ -22,6 +24,9 @@ const rskTestnetExplorerLink = 'https://explorer.testnet.rsk.co'
 const celoExplorerLink = 'https://explorer.celo.org'
 const celoAlfajoresTestnetExplorerLink = 'https://alfajores-blockscout.celo-testnet.org'
 const celoBaklavaTestnetExplorerLink = 'https://baklava-blockscout.celo-testnet.org'
+const LightstreamsExplorerLink = 'https://explorer.lightstreams.io'
+const LightstreamsTestnetExplorerLink = 'https://explorer.sirius.lightstreams.io'
+
 
 const explorerLink = (networkCode, net, prefix) => {
 	switch (networkCode) {
@@ -45,6 +50,12 @@ const explorerLink = (networkCode, net, prefix) => {
 		return celoAlfajoresTestnetExplorerLink
 	case CELO_BAKLAVA_TESTNET_CODE: // CELO BAKLAVA TESTNET
 		return celoBaklavaTestnetExplorerLink
+	case CELO_BAKLAVA_TESTNET_CODE: // CELO BAKLAVA TESTNET
+		return celoBaklavaTestnetExplorerLink
+	case LIGHTSTREAMS_CODE: // Lightstreams mainnet
+		return LightstreamsExplorerLink
+	case LIGHTSTREAMS_SIRIUS_CODE: // Lightstreams mainnet
+		return LightstreamsTestnetExplorerLink // Lightstreams testnet
 	default:
 		return blockScoutLink(net, prefix)
 	}
@@ -77,8 +88,6 @@ const tokenLink = (networkCode, chain, prefix, tokenAddress, holderAddress) => {
 		return celoExplorerLinkStr
 	case CELO_ALFAJORES_TESTNET_CODE: // CELO Alfajores testnet
 		return celoAlfajoresTestnetExplorerLinkStr
-	case CELO_BAKLAVA_TESTNET_CODE: // CELO Baklava testnet
-		return celoBaklavaTestnetExplorerLinkStr
 	default:
 		return blockscoutLinkStr
 	}

@@ -14,6 +14,8 @@ const {
 	CELO_CODE,
 	CELO_ALFAJORES_TESTNET_CODE,
 	CELO_BAKLAVA_TESTNET_CODE,
+	LIGHTSTREAMS_CODE,
+	LIGHTSTREAMS_SIRIUS_CODE
 } = networkIDs
 
 function getNetworkDisplayName(network) {
@@ -45,8 +47,10 @@ function getNetworkDisplayName(network) {
 		return 'CELO'
 	case CELO_ALFAJORES_TESTNET_CODE:
 		return 'CELO Alfajores'
-	case CELO_BAKLAVA_TESTNET_CODE:
-		return 'CELO Baklava'
+	case LIGHTSTREAMS_CODE:
+		return 'Lightstreams'
+	case LIGHTSTREAMS_SIRIUS_CODE:
+		return 'Sirius'
 	default:
 		return 'Unknown Private Network'
 	}
@@ -71,6 +75,9 @@ function getNetworkCoinName(network) {
 	case CELO_ALFAJORES_TESTNET_CODE:
 	case CELO_BAKLAVA_TESTNET_CODE:
 		return 'CELO'
+	case LIGHTSTREAMS_CODE:
+	case LIGHTSTREAMS_SIRIUS_CODE:
+		return 'PHT'
 	default:
 		return 'ETH'
 	}
@@ -85,6 +92,7 @@ function isTestnet(network) {
 	case RSK_CODE:
 	case CLASSIC_CODE:
 	case CELO_CODE:
+	case LIGHTSTREAMS_CODE:
 		return false
 	default:
 		return true

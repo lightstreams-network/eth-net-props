@@ -68,6 +68,10 @@ const tokenLink = (networkCode, chain, prefix, tokenAddress, holderAddress) => {
 	const celoExplorerLinkStr = `${celoExplorerLink}/address/${holderAddress}/tokens/${tokenAddress}/token_transfers`
 	const celoAlfajoresTestnetExplorerLinkStr = `${celoAlfajoresTestnetExplorerLink}/address/${holderAddress}/tokens/${tokenAddress}/token_transfers`
 	const celoBaklavaTestnetExplorerLinkStr = `${celoBaklavaTestnetExplorerLink}/address/${holderAddress}/tokens/${tokenAddress}/token_transfers`
+	const lightstreamsExplorerLinkStr = `${LightstreamsExplorerLink}/address/${tokenAddress}`
+	const lightstreamsTestnetExplorerLinkStr = `${LightstreamsTestnetExplorerLink}/address/${tokenAddress}`
+
+	networkCode = parseInt(networkCode)
 
 	switch (networkCode) {
 	case SOKOL_CODE: // POA Sokol testnet
@@ -88,6 +92,10 @@ const tokenLink = (networkCode, chain, prefix, tokenAddress, holderAddress) => {
 		return celoExplorerLinkStr
 	case CELO_ALFAJORES_TESTNET_CODE: // CELO Alfajores testnet
 		return celoAlfajoresTestnetExplorerLinkStr
+	case LIGHTSTREAMS_CODE: // CELO Alfajores testnet
+		return lightstreamsExplorerLinkStr
+	case LIGHTSTREAMS_SIRIUS_CODE: // CELO Alfajores testnet
+		return lightstreamsTestnetExplorerLinkStr
 	default:
 		return blockscoutLinkStr
 	}
